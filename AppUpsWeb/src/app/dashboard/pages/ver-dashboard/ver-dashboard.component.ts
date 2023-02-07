@@ -237,4 +237,35 @@ getRandomColor(): string {
   return '#' + Math.floor(Math.random() * 16777215).toString(16);
 }
 
+dibujarBarras(labels: string[],dataset: number[]){
+    const canvas = document.getElementById('myChart') as HTMLCanvasElement;
+    const ctx: any = canvas.getContext('2d');
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: '# de Registros',
+            data: dataset,
+            backgroundColor: [
+                this.getRandomColor(),
+            ],
+        }]
+    };
+
+    const options: any = {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+    };
+
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+    //------------------------------------------------------------------------------------------------------- 
+}
+
 }

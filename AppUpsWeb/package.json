@@ -1,5 +1,5 @@
 {
-  "name": "app-ups-web",
+  "name": "planner-web",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

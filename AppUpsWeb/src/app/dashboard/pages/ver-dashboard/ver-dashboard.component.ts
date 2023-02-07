@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, map } from 'rxjs';
-import HorarioDiaz from 'src/assets/json/DDiaz.json';
+import { map } from 'rxjs';
 import { RealtimeFirebaseService } from '../../services/realtime-firebase.service';
-import { Profesor, Materias, Materia, Horario, Registro } from '../../models/profesor.models';
+import { Profesor, Materia, Registro } from '../../models/profesor.models';
 import { FireMessagingService } from '../../services/fire-messaging.service';
-import { object } from 'rxfire/database';
+// import { Chart } from 'chart.js';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-ver-dashboard',
@@ -13,7 +14,6 @@ import { object } from 'rxfire/database';
   styleUrls: ['./ver-dashboard.component.css']
 })
 export class VerDashboardComponent implements OnInit{
-
   title = 'json-angular';
   Horario: any[] = [];
   teachers!: Profesor[];
@@ -23,8 +23,8 @@ export class VerDashboardComponent implements OnInit{
   diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
   materia_actual!: any;
   respuesta_dia!: Registro;
-  valor: string = "Carrera";
-  filtro: string = "Computacion";
+  valor: string = "";
+  filtro: string = "";
   registros: Registro[] = [];
 
   carreras: string[] = []
@@ -34,9 +34,10 @@ export class VerDashboardComponent implements OnInit{
   hayMateria: boolean = false;
   hayRegistro: boolean = false;
 
-  constructor( private firebase: RealtimeFirebaseService, 
-               private route: ActivatedRoute, 
-               private message: FireMessagingService){
+
+
+
+  constructor( private firebase: RealtimeFirebaseService, private route: ActivatedRoute, private message: FireMessagingService){
     this.firebase.getCarreras().subscribe({
       next: res => {
         this.carreras = res;
@@ -55,23 +56,60 @@ export class VerDashboardComponent implements OnInit{
     this.route.params.subscribe({
       next: ( {id} ) =>{
         this.name = id;
-      }
-    });
-
-    this.route.queryParams.subscribe(
-      res => {
-        this.firebase.getProfesor(res['img']).subscribe( {
+        this.firebase.getProfesor(this.name).subscribe( {
           next: res => {
             this.teacher = res[0];
             this.cargarHorario();
             this.getMateriaActual();
-            this.getRespuesta();
+            console.log(this.materia_actual);
+            
+            if (this.materia_actual){
+              this.getRespuesta();
+            }
             this.getBarras("Carreras","Computación");
           }
         })
       }
-    )
+    });
+
+    // this.route.queryParams.subscribe(
+    //   res => {
+    //   }
+    // )
   }
+
+  ngAfterViewInit(){
+    //------------------------------------------------------------------------------------------------------- 
+    const canvas = document.getElementById('myChart') as HTMLCanvasElement;
+    const ctx: any = canvas.getContext('2d');
+
+    const data = {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
+        datasets: [{
+            label: '# de Registros',
+            data: [12, 19, 3, 5],
+            backgroundColor: [
+                this.getRandomColor(),
+            ],
+        }]
+    };
+
+    const options: any = {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+    };
+
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+    //------------------------------------------------------------------------------------------------------- 
+  }
+
 
   getProfesores(): void{
     this.firebase.getProfesores().snapshotChanges().pipe(
@@ -131,13 +169,17 @@ export class VerDashboardComponent implements OnInit{
     this.firebase.getReporte(filtro,valor).subscribe({
       next: res => {
         this.registros = res || [];
+        const num_rea = this.registros.filter(registro => registro.malla == "Reajuste").length
+        const num_red = this.registros.filter(registro => registro.malla == "Rediseño").length
+        console.log("Reajuste: " ,num_rea);
+        console.log("Rediseño: " ,num_red);
       }
     })
   }
 
   getBarras(filtro: string,valor: string){
-    this.getData(filtro,valor);
-    console.log(this.registros);
+    // this.getData(filtro,valor);
+    // console.log(this.registros);
     const num_rea = this.registros.filter(registro => registro.malla == "Reajuste").length
     const num_red = this.registros.filter(registro => registro.malla == "Rediseño").length
     console.log("Reajuste: " ,num_rea);
@@ -147,6 +189,13 @@ export class VerDashboardComponent implements OnInit{
   consultar(){
     console.log(this.valor);
     console.log(this.filtro);
+    this.firebase.getMallas(this.valor).subscribe({
+      next: res => {
+        console.log(res)
+      }
+    })
+    this.getData(this.filtro,this.valor)
+    this.getBarras(this.filtro,this.valor)
   }
 
 
@@ -183,5 +232,9 @@ export class VerDashboardComponent implements OnInit{
       }
     }) 
   }
+
+getRandomColor(): string {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
 
 }

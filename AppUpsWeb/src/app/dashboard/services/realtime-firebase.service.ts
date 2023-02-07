@@ -12,6 +12,7 @@ export class RealtimeFirebaseService {
   private dbRegistros = '/registros';
   private dbCarreras = '/Carreras';
   private dbLaboratorios = '/Laboratorios';
+  private dbMallas = '/Mallas';
 
   misLibrosRef: AngularFireList<Profesor[]>;
 
@@ -23,12 +24,20 @@ export class RealtimeFirebaseService {
     return this.misLibrosRef; 
   }
 
+  // getProfesor(name:string): Observable<Profesor[]>{
+  //   let teacher = this.firestore.list<Profesor>(this.dbProfesores, ref => 
+  //     ref.orderByChild('imagen').equalTo(name)
+  //   ).valueChanges()
+  //   return teacher
+  // }
+
   getProfesor(name:string): Observable<Profesor[]>{
     let teacher = this.firestore.list<Profesor>(this.dbProfesores, ref => 
-      ref.orderByChild('imagen').equalTo(name)
+      ref.orderByKey().equalTo(name)
     ).valueChanges()
     return teacher
   }
+
 
   getReporte(filtro: string,valor: string): Observable<Registro[]>{
     let reporte = this.firestore.list<Registro>(this.dbRegistros, ref => 
@@ -37,12 +46,17 @@ export class RealtimeFirebaseService {
     return reporte
   }
 
-  getCarreras(){
+  getCarreras(): Observable<string[]>{
     return this.firestore.list<string>(this.dbCarreras ).valueChanges()
   }
 
-  getLaboratorios(){
+  getLaboratorios(): Observable<string[]>{
     return this.firestore.list<string>(this.dbLaboratorios ).valueChanges()
+  }
+
+  getMallas(carrera: string): Observable<string[]>{
+    return this.firestore.list<string>(this.dbMallas, ref => 
+      ref.orderByKey().equalTo(carrera) ).valueChanges()
   }
 
   getRespuesta(name: string): Observable<Registro[]>{

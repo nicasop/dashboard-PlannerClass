@@ -34,7 +34,6 @@
             <li class="list-group-item text-center"
                 *ngFor="let profe of teachers"
                 [routerLink]="['/dashboard',profe.id]"
-                [queryParams]="{ img: profe.imagen}"
                 routerLinkActive="active"
                 >
                 {{ profe.id }}

@@ -1,0 +1,106 @@
+
+[
+    {
+      "hora": "08:00 - 09:00",
+      "materiaLunes": "VINCULACION CON LA SOCIEDAD" ,
+      "materiaMartes": "",
+      "materiaMiercoles": "",
+      "materiaJueves": "DOCENCIA-TURORIAS",
+      "materiaViernes": "DOCENCIA-TURORIAS"
+
+    },
+    {
+        "hora": "09:00 - 10:00",
+        "materiaLunes": "PROGRAMACION APLICADA",
+        "materiaMartes": "PROGRAMACION APLICADA",
+        "materiaMiercoles": "",
+        "materiaJueves": "PROGRAMACION APLICADA",
+        "materiaViernes": "PROGRAMACION APLICADA"
+  
+      },
+      {
+        "hora": "10:00 - 11:00",
+        "materiaLunes": "PROGRAMACION APLICADA" ,
+        "materiaMartes": "PROGRAMACION APLICADA",
+        "materiaMiercoles": "",
+        "materiaJueves": "PROGRAMACION APLICADA",
+        "materiaViernes": "PROGRAMACION APLICADA"
+  
+      },
+      {
+        "hora": "11:00 - 12:00",
+        "materiaLunes": "DOCENCIA-TURORIAS" ,
+        "materiaMartes": "",
+        "materiaMiercoles": "",
+        "materiaJueves": "VINCULACION CON LA SOCIEDAD",
+        "materiaViernes": "TRABAJO DE TITULACION"
+  
+      },
+      {
+        "hora": "12:00 - 13:00",
+        "materiaLunes": "DOCENCIA-TURORIAS" ,
+        "materiaMartes": "",
+        "materiaMiercoles": "",
+        "materiaJueves": "",
+        "materiaViernes": "UNIDAD DE TITULACION"
+  
+      },
+      {
+        "hora": "14:00 - 15:00",
+        "materiaLunes": "VINCULACION CON LA SOCIEDAD" ,
+        "materiaMartes": "TRABAJO DE TITULACION",
+        "materiaMiercoles": "SEGURIDAD DE REDES",
+        "materiaJueves": "SEGURIDAD DE REDES",
+        "materiaViernes": "PROGRAMACION APLICADA"
+  
+      },
+      {
+        "hora": "15:00 - 16:00",
+        "materiaLunes": "VINCULACION CON LA SOCIEDAD" ,
+        "materiaMartes": "TRABAJO DE TITULACION",
+        "materiaMiercoles": "SEGURIDAD DE REDES",
+        "materiaJueves": "SEGURIDAD DE REDES",
+        "materiaViernes": "PROGRAMACION APLICADA"
+  
+      },
+      {
+        "hora": "16:00 - 17:00",
+        "materiaLunes": "VINCULACION CON LA SOCIEDAD" ,
+        "materiaMartes": "PLATAFORMAS MOVILES",
+        "materiaMiercoles": "PROGRAMACION APLICADA",
+        "materiaJueves": "PROGRAMACION APLICADA",
+        "materiaViernes": ""
+  
+      },
+      {
+        "hora": "17:00 - 18:00",
+        "materiaLunes": "VINCULACION CON LA SOCIEDAD" ,
+        "materiaMartes": "PLATAFORMAS MOVILES",
+        "materiaMiercoles": "PROGRAMACION APLICADA",
+        "materiaJueves": "PROGRAMACION APLICADA",
+        "materiaViernes": ""
+  
+      },
+      {
+        "hora": "18:00 - 19:00",
+        "materiaLunes": "" ,
+        "materiaMartes": "PROGRAMACION APLICADA",
+        "materiaMiercoles": "PROGRAMACION APLICADA",
+        "materiaJueves": "",
+        "materiaViernes": ""
+  
+      },
+      {
+        "hora": "19:00 - 20:00",
+        "materiaLunes": "" ,
+        "materiaMartes": "PROGRAMACION APLICADA",
+        "materiaMiercoles": "PROGRAMACION APLICADA",
+        "materiaJueves": "",
+        "materiaViernes": ""
+  
+      }
+
+
+
+
+]

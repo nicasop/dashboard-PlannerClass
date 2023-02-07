@@ -1,0 +1,199 @@
+<div class="d-flex"id="wrapper">
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-ligth bg-transparent py-4 px-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                <h2 class="fs-2 m-0" >Dashboard</h2>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle second-text fw-bold" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fas fa-user me-2"></i>DATACENTER</a>
+
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid px-4">
+            <div *ngIf="hayMateria;else sinMateria" class="row g-3 my-2">
+            <!-- <div class="row g-3 my-2"> -->
+                <div class="col-md-3">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <div>
+                        <h3 class="fs-2">Docente</h3>
+                        <p class="fs-5"> {{ name }} </p>
+                        </div>
+                        <i class="fas  fa-book fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <div *ngIf="hayRegistro;else noRegistrado">
+                            <h3 class="fs-2">Registro</h3>
+                            <button type="button" class="btn btn-success">
+                                <i class="fa-sharp fa-solid fa-check"></i> Registrado
+                            </button>
+                        </div>
+
+                        <ng-template #noRegistrado>
+                            <div>
+                                <h3 class="fs-2">Registro</h3>
+                                <button type="button" class="btn btn-danger">
+                                    <i class="fa-sharp fa-solid fa-x"></i> No Registrado
+                                </button>
+                            </div>
+                        </ng-template>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center ">
+                        <div>
+                            <h3 class="fs-2">Laboratorio</h3>
+
+                            <p *ngIf="materia_actual" class="fs-5" style="color:green"><strong> {{materia_actual.laboratorio}} </strong></p>
+
+                        </div>
+                    <i class="fas fa-desktop fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <div>
+                            <h3 class="fs-2">Recordatorio</h3>
+                            <button type="button" class="btn btn-outline-success" (click)="enviarNotificacion(name)">Enviar Notificación</button>
+                        </div>
+                    <i class="fas fa fa-bell fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                    </div>
+                </div>
+            </div>
+
+            <ng-template #sinMateria>
+                <div class="row g-3 my-2">
+                    <div class="col-md-12">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                            <h3 class="fs-2 ">En este momento el Docente no tiene ninguna materia asignada </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <div class="row g-3 my-2">
+                <div class="col-md-6 d-flex">
+                    <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
+                        <div>
+                            <h3 class="fs-2"> Reporte por Laboratorios </h3>
+                            <img src="./assets/blank.png" width="590" height="590">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 d-flex">
+                    <div class="p-3 bg-white shadow-sm justify-content-around align-items-center rounded">
+                        <div>
+                            <h3 class="fs-2"> Reporte por Carreras </h3>
+                            <img src="./assets/pie2.png" width="590" height="590">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <!-- <div class="btn-group">
+                            <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Opciones Reportes
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Semestres</a></li>
+                                <li><a class="dropdown-item" href="#">Carrera</a></li>
+                                <li><a class="dropdown-item" href="#">Laboratorios</a></li>
+                            </ul>
+                        </div> -->
+                        <!-- <div>
+                            <select [(ngModel)]="filtro" (change)="consultar()">
+                            <option ngValue="carrera">Carreras</option>
+                            <option ngValue="Laboratorios">Laboratorios</option>
+                            </select>
+                        </div> -->
+
+                        <div class="form-floating">
+                            <select [(ngModel)]="filtro" (change)="consultar()" id="filtro" class="form-select">
+                                <option ngValue="carrera">Carreras</option>
+                                <option ngValue="laboratorio">Laboratorios</option>
+                            </select>
+                            <label for="filtro"> Seleccione uno </label>
+                        </div>
+
+                        <div class="form-floating" *ngIf="filtro == 'carrera'">
+                            <select [(ngModel)]="valor" (change)="consultar()" id="valor" class="form-select">
+                            <option *ngFor="let c of carreras" [ngValue]="c">{{c}}</option>
+                            </select>
+                            <label for="valor"> Seleccione uno </label>
+                        </div>
+
+                        <div class="form-floating" *ngIf="filtro == 'laboratorio'">
+                            <select [(ngModel)]="valor" (change)="consultar()" id="valor" class="form-select">
+                            <option *ngFor="let c of laboratorios" [ngValue]="c">{{c}}</option>
+                            </select>
+                            <label for="valor"> Seleccione uno </label>
+                        </div>
+
+                        <div>
+                            <button type="button" class="btn btn-success" (click)="getBarras(filtro, valor)">Descargar
+                                <i class="fa-sharp fa-solid fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-5" *ngIf="Horario.length != 0;else cargahorario ">
+                <h3 class="fs-4 mb-3">Horario</h3>
+                <div class="col">
+                    <table class="table bg-white rounded shadow-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th>Hora</th>
+                                <th scope="col">Lunes</th>
+                                <th scope="col">Martes</th>
+                                <th scope="col">Miercoles</th>
+                                <th scope="col">Jueves</th>
+                                <th scope="col">Viernes</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let Dia of Horario">
+                            <tr>
+                                <td scope="row">{{Dia.hora}} </td>
+                                <td scope="row">{{Dia.lunes}} </td>
+                                <td scope="row">{{Dia.martes}} </td>
+                                <td scope="row">{{Dia.miercoles}} </td>
+                                <td scope="row">{{Dia.ueves}} </td>
+                                <td scope="row">{{Dia.viernes}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <script src="script.js"></script>
+                </div>
+            </div>
+
+            <ng-template #cargahorario>
+                <div class="row my-5">
+                    El horario del Docente se esta cargando espere......
+                </div>
+            </ng-template>
+
+
+        </div>
+    </div>
+</div>

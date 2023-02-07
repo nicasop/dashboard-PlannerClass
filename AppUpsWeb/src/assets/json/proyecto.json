@@ -1,0 +1,40 @@
+{
+  "persona": {
+    "ddiazupseduec": {
+      "dias": {
+        "lunes": {
+          "materias": {
+            "materia1": {
+              "alumnos": 20,
+              "carrera": "Computación",
+              "horaFin": 18,
+              "horaIni": 16,
+              "laboratorio": "IHM",
+              "malla": "Reajuste",
+              "materia": "Plataformas Móviles"
+            }
+          }
+        }
+      },
+      "imagen": "https://res.cloudinary.com/dsayn9vmk/image/upload/v1673826326/qhyfvvt5cevyaszwwg52.jpg"
+    },
+    "vtixilimaupseduec": {
+      "dias": {
+        "lunes": {
+          "materias": {
+            "materia1": {
+              "alumnos": 22,
+              "carrera": "Computación",
+              "horaFin": 9,
+              "horaIni": 11,
+              "laboratorio": "Networking 3",
+              "malla": "Reajuste",
+              "materia": "Enlaces de comunicación"
+            }
+          }
+        }
+      },
+      "imagen": "https://res.cloudinary.com/dsayn9vmk/image/upload/v1673826380/ihrmombhtdew4gdbw0zh.jpg"
+    }
+  }
+}

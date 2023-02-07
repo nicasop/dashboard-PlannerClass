@@ -1,3 +1,198 @@
-<p>menu works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  
+   <div class="d-flex" id="wrapper">
+    
+        <div class="bg-white" id="sidebar-wrapper">
 
-<button class="btn btn-danger">Prueba botón</button>
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+                <i class="fas fa-user me-2"></i>StatuTE
+            </div>
+    
+            <div class="sidebar-heading list-group list-group-flush my-3 border-bottom" >
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">
+                    <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                    
+                </a>
+           
+             </div>
+            
+           <nav class="navbar bg-light">
+            <div class="container-fluid">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">
+                  <i class="fa-solid fa-magnifying-glass"></i></button>
+              </form>
+            </div>
+          </nav>
+            
+            
+             
+             
+        </div>
+                  
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-ligth bg-transparent py-4 px-4">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                            <h2 class="fs-2 m-0" >Dashboard</h2>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+                        </button>
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item-dropdown">
+                                <a href="#" class="nav-link dropdown-toggle second-text fw-bold" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fas fa-user me-2"></i>DATACENTER</a>
+                            
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid px-4">
+
+                <div class="row g-3 my-2">
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">Docente</h3>
+                                <p class="fs-5">Daniel Diaz</p>
+                            </div>
+                            <i class="fas  fa-book fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">Registro</h3>
+                                <button type="button" class="btn btn-success">
+                                  <i class="fa-sharp fa-solid fa-check"></i> Registrado
+                                </button>
+                            </div>
+                            
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center ">
+                            <div>
+                                <h3 class="fs-2">Laboratorio</h3>
+                                <p  class="fs-5" style="color:green"><strong> LAB 10</strong></p>
+                              
+                             
+                            </div>
+                            <i class="fas fa-desktop fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">Recordatorio</h3>
+                                <button type="button" class="btn btn-outline-success">Enviar Notificación</button>
+                            </div>
+                             <i class="fas fa fa-bell fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 my-2">
+                  <div class="col-md-6">
+                      <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                          <div>
+                              <h3 class="fs-2">Reporte por Semestres </h3>
+                              <img src="./assets/blank.png">
+                          </div>
+                     
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                          <div>
+                              <h3 class="fs-2">Reporte por Carreras </h3>
+                              <img src="./assets/pie2.png" width="560" height="560">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <div>
+                          <button type="button" class="btn btn-success">Descargar
+                            <i class="fa-sharp fa-solid fa-download"></i>
+                          </button>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Opciones Reportes
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Semestres</a></li>
+                            <li><a class="dropdown-item" href="#">Carrera</a></li>
+                            <li><a class="dropdown-item" href="#">Laboratorios</a></li>
+                            
+                         
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+                 
+                  
+              </div>
+              
+
+                <div class="row my-5">
+                    <h3 class="fs-4 mb-3">Horario</h3>
+                    <div class="col">
+                        <table class="table bg-white rounded shadow-sm table-hover">
+                            <thead>
+                              <tr>
+                                <th>Hora</th>
+                                <th scope="col">Lunes</th>
+                                <th scope="col">Martes</th>
+                                <th scope="col">Miercoles</th>
+                                <th scope="col">Jueves</th>
+                                <th scope="col">Viernes</th>
+                              </tr>
+                            </thead>
+                            <tbody *ngFor="let Diaz of Horario">
+                              <tr>
+                                <td scope="row">{{Diaz.hora}} </td>
+                                <td scope="row">{{Diaz.materiaLunes}} </td>
+                                <td scope="row">{{Diaz.materiaMartes}} </td>
+                                <td scope="row">{{Diaz.materiaMiercoles}} </td>
+                                <td scope="row">{{Diaz.materiaJueves}} </td>
+                                <td scope="row">{{Diaz.materiaViernes}} </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <script src="script.js"></script>
+                    </div>
+                </div>
+              
+
+            </div>
+         </div>
+</div> 
+
+</body>
+<script>
+  var el = document.getElementById("wrapper")
+  var toggleButton = document.getElementById("menu-toggle")
+
+  toggleButton.onclick = function() {
+      el.classList.toggle("toggled")
+
+  }
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<div>
+    <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+        <i class="fas fa-user me-2"></i>StatuTE
+    </div>
+
+    <div class="sidebar-heading list-group list-group-flush my-3 border-bottom" >
+        <div class="list-group-item list-group-item-action bg-transparent second-text active " routerLink="">
+            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+        </div>
+    </div>
+
+    <!-- <nav class="navbar bg-light list-group list-group-flush">
+        <div class="container-fluid">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        </div>
+    </nav> -->
+
+    <div class="row">
+        <div class="col">
+            <form autocomplete="off" (ngSubmit)="buscar()">
+                <input type="text" name="teacher" class="form-control" placeholder="Buscar Profesor....." [(ngModel)]="teacher">
+            </form>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div class="container overflow-auto">
+        <ul class="list-group">
+            <li class="list-group-item text-center"
+                *ngFor="let profe of teachers"
+                [routerLink]="['/dashboard',profe.id]"
+                [queryParams]="{ img: profe.imagen}"
+                routerLinkActive="active"
+                >
+                {{ profe.id }}
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- <div class="alert alert-danger">
+        No se encontró un profesor registrado con el nombre ingresado
+    </div> -->
+</div>
